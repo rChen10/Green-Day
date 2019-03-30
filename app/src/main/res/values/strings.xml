@@ -2,4 +2,18 @@
     <string name="app_name">Green Day</string>
     <string name="minutes_driving">minutes_driving</string>
     <string name="minutes_driving_default">0.00</string>
+    <string name="recycle_bottles">recycle_bottles</string>
+    <string name="recycle_bottles_default">0</string>
+    <string name="recycle_bags">recycle_bags</string>
+    <string name="recycle_bags_default">0</string>
+    <string name="use_renewable_energy">use_renewable_energy</string>
+    <string name="use_renewable_energy_default">false</string>
+    <string name="ounces_of_meat_eaten">ounces_of_meat_eaten</string>
+    <string name="ounces_of_meat_eaten_default">0</string>
+    <string name="app_referrals">app_referrals</string>
+    <string name="app_referrals_default">0</string>
+    <string name="volunteer_hours">volunteer_hours</string>
+    <string name="volunteer_hours_default">0</string>
+    <string name="pounds_food_wasted">pounds_food_wasted</string>
+    <string name="pounds_food_wasted_default">0</string>
 </resources>
