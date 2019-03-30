@@ -7,7 +7,7 @@
     <string name="recycle_bags">recycle_bags</string>
     <string name="recycle_bags_default">0</string>
     <string name="use_renewable_energy">use_renewable_energy</string>
-    <string name="use_renewable_energy_default">false</string>
+    <string name="use_renewable_energy_default">0</string>
     <string name="ounces_of_meat_eaten">ounces_of_meat_eaten</string>
     <string name="ounces_of_meat_eaten_default">0</string>
     <string name="app_referrals">app_referrals</string>
@@ -16,4 +16,7 @@
     <string name="volunteer_hours_default">0</string>
     <string name="pounds_food_wasted">pounds_food_wasted</string>
     <string name="pounds_food_wasted_default">0</string>
+    <string name="month">month</string>
+    <string name="date">date</string>
+    <string name="year">year</string>
 </resources>
