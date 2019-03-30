@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         // obtain saved info
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor sharedEditor = sharedPref.edit();
 
         // find date
         Calendar date = Calendar.getInstance();
@@ -32,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         int defaultYear = 0;
         lastDate[2] = sharedPref.getInt(getString(R.string.year), defaultYear);
 
-        currentDate[0] = date.MONTH+1;
-        currentDate[1] = date.DATE;
-        currentDate[2] = date.YEAR;
+        currentDate[0] = date.get(date.MONTH)+1;
+        currentDate[1] = date.get(date.DATE);
+        currentDate[2] = date.get(date.YEAR);
 
         Info info;
 
@@ -44,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
             // prompt update if date is new
 
         }
+        sharedEditor.putInt(getString(R.string.month), currentDate[0]);
+        sharedEditor.putInt(getString(R.string.date), currentDate[1]);
+        sharedEditor.putInt(getString(R.string.year), currentDate[2]);
+        sharedEditor.apply();
         //else {
             // read from info otherwise
             float defaultDriving = Float.parseFloat(getResources().getString(R.string.minutes_driving_default));
@@ -61,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
             float defaultVolunteer = Float.parseFloat(getResources().getString(R.string.volunteer_hours_default));
             float volunteerHours = sharedPref.getFloat(getString(R.string.volunteer_hours), defaultVolunteer);
 
-            info = new Info(minutesDriving, recycledBottles, recycledBags, usesRenewable, ouncesMeatEaten, appReferrals, volunteerHours);
+            info = new Info(minutesDriving, recycledBottles, recycledBags, usesRenewable, ouncesMeatEaten, appReferrals, volunteerHours, lastDate);
         //}
 
+        String textDate = info.date[0] + " / " + info.date[1] + " / " + info.date[2];
+        ((TextView) findViewById(R.id.date)).setText(textDate);
         InfoFragment currentStats = new InfoFragment();
         currentStats.setObject(info);
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();

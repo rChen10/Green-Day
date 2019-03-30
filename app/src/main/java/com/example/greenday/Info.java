@@ -8,9 +8,10 @@ public class Info{
     public float ouncesOfMeatEaten;
     public int appReferrals;
     public float volunteerHours;
+    public int[] date;
 
     public Info(float newDriving, int newBottles, int newBags, boolean newEnergy, float newMeat,
-                int newReferrals, float newVolunteer){
+                int newReferrals, float newVolunteer, int[] newDate){
         minutesDriving = newDriving;
         recycledBottles = newBottles;
         recycledBags = newBags;
@@ -18,6 +19,7 @@ public class Info{
         ouncesOfMeatEaten = newMeat;
         appReferrals = newReferrals;
         volunteerHours = newVolunteer;
+        date = newDate;
     }
 
     public String[] getVar(int pos){
