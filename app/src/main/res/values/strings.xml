@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Green Day</string>
+    <string name="minutes_driving">minutes_driving</string>
+    <string name="minutes_driving_default">0.00</string>
 </resources>
