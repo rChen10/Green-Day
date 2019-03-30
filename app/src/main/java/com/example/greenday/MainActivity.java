@@ -46,13 +46,27 @@ public class MainActivity extends AppCompatActivity {
             || lastDate[2] != currentDate[2]) {
             // prompt update if date is new
 
+            float minutesDriving = Float.parseFloat(getResources().getString(R.string.minutes_driving_default));
+            sharedEditor.putFloat(getString(R.string.minutes_driving), minutesDriving);
+            int recycledBottles = Integer.parseInt(getResources().getString(R.string.recycle_bottles_default));
+            sharedEditor.putInt(getString(R.string.recycle_bottles), recycledBottles);
+            int recycledBags = Integer.parseInt(getResources().getString(R.string.recycle_bags_default));
+            sharedEditor.putInt(getString(R.string.recycle_bags), recycledBags);
+            boolean usesRenewable = Boolean.parseBoolean(getResources().getString(R.string.use_renewable_energy_default));
+            sharedEditor.putBoolean(getString(R.string.use_renewable_energy), usesRenewable);
+            float ouncesMeatEaten = Float.parseFloat(getResources().getString(R.string.ounces_of_meat_eaten_default));
+            sharedEditor.putFloat(getString(R.string.ounces_of_meat_eaten), ouncesMeatEaten);
+            int appReferrals = Integer.parseInt(getResources().getString(R.string.app_referrals_default));
+            sharedEditor.putInt(getString(R.string.app_referrals), appReferrals);
+            float volunteerHours = Float.parseFloat(getResources().getString(R.string.volunteer_hours_default));
+            sharedEditor.putFloat(getString(R.string.volunteer_hours), volunteerHours);
 
             sharedEditor.putInt(getString(R.string.month), currentDate[0]);
             sharedEditor.putInt(getString(R.string.date), currentDate[1]);
             sharedEditor.putInt(getString(R.string.year), currentDate[2]);
             sharedEditor.apply();
         }
-        //else {
+        else {
             // read from info otherwise
             float defaultDriving = Float.parseFloat(getResources().getString(R.string.minutes_driving_default));
             float minutesDriving = sharedPref.getFloat(getString(R.string.minutes_driving), defaultDriving);
@@ -70,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             float volunteerHours = sharedPref.getFloat(getString(R.string.volunteer_hours), defaultVolunteer);
 
             info = new Info(minutesDriving, recycledBottles, recycledBags, usesRenewable, ouncesMeatEaten, appReferrals, volunteerHours, lastDate);
-        //}
+        }
 
         String textDate = info.date[0] + " / " + info.date[1] + " / " + info.date[2];
         ((TextView) findViewById(R.id.date)).setText(textDate);
