@@ -46,11 +46,12 @@ public class MainActivity extends AppCompatActivity {
             || lastDate[2] != currentDate[2]) {
             // prompt update if date is new
 
+
+            sharedEditor.putInt(getString(R.string.month), currentDate[0]);
+            sharedEditor.putInt(getString(R.string.date), currentDate[1]);
+            sharedEditor.putInt(getString(R.string.year), currentDate[2]);
+            sharedEditor.apply();
         }
-        sharedEditor.putInt(getString(R.string.month), currentDate[0]);
-        sharedEditor.putInt(getString(R.string.date), currentDate[1]);
-        sharedEditor.putInt(getString(R.string.year), currentDate[2]);
-        sharedEditor.apply();
         //else {
             // read from info otherwise
             float defaultDriving = Float.parseFloat(getResources().getString(R.string.minutes_driving_default));
